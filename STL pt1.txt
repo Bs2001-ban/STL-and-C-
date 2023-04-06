@@ -1,0 +1,268 @@
+
+#include <iostream>
+#include<bits/stdc++.h>
+//it includes all the header files 
+using namespace std;
+
+
+//std basically declares scope 
+
+//create a datatype where u want to store 
+//{string,int,double,char}
+
+struct node{
+    
+    string str;
+    int num;
+    double db;
+    char x;
+    
+    node(str1,num1,db1,x1)
+    {
+        str=str1;
+        num=num1;
+        db=db1;
+        x=x1;
+        
+    }
+    
+}
+//struct is itself a datatype 
+
+namespace  srv{
+    int val 50;
+    int getVal()
+    {
+        return val*10;
+    }
+}
+array<int,100>arr;-->{0,0,0....};
+int main()
+{ 
+    //int val =50;
+    double val =10.0;
+    cout<<val<<endl;  //this prints 10.0;
+    //error same var multiple defination;
+    
+    cout<<srv::val<<endl; //prints 50
+    
+    cout<<srv::getVal()<<endl;  // prints 500;
+    
+    // node srv;
+    // srv.str="sourav";
+    // srv.num=10;
+    // srv.db=20.0;
+    //this is absolutely the wrong way of defining use constructor instead;
+    
+     node srv =new node("sourav",40,20.0,"");
+     //we can also create {arr[],int ,string}
+     
+     
+     //arrays ---->>
+     int arr[100];
+     //arrray as a container;
+     array<int,100>arr;-->{?,?,?....};
+     
+     array<int,5>arr={1,2,3}--->{1,2,3,0,0};
+     
+     array<int,5>arr;
+     arr.fill(0);---> {0,0,0,0,0};
+     //for accessing
+     arr.at(0)--->0 is the index number
+     //for printing
+     for(int i =0;i<5;i++)
+     {
+         cout<<arr.at(i)<<" ";
+     }
+     
+     //iterators---
+     //begin(),end(),rend(),rbegin()
+     //always be contigious
+     
+    // begin()--pointing to the first element
+    //end()--right after the last element
+    //rbegin()-- last element
+    //rend()--right before the first element
+
+     array<int,5>arr;
+     for(int i =0;i<5;i++)
+     cin>>arr.at(i);
+     
+ for(auto it=arr.begin();it!=arr.end();it++)
+ {
+     //automatically taking the datatype 
+     //it is the pointer
+        cout<<*it<<" ";
+ 
+ }
+ 
+ for(auto it =arr.rbegin();it!=arr.rend();it++)
+ {
+     cout<<*it<<" ";
+ }
+ 
+ for(auto it = arr.end()-1;it>=arr.begin();it--)
+ {
+     cout<<*it<<" ";
+ }
+
+for(auto it : arr)
+{
+//since it was a pointer 
+//auto it points the eleemnt itself
+//forward director
+//foreach loop
+cout<<it<<" ";
+}
+ 
+string s ="dahduahjjk";
+for(auto it : s)
+{
+cout<<it<<" ";
+//  d a h d u a h----like this
+}
+//iterator traverses on the elements itself
+
+//size 
+arr.size();
+//front 
+arr.front(); //arr.at(0)
+//back;
+array.back();//arr.(arr.size()-1);
+
+
+//vector ------------->
+//int arr[50]-->static array 
+//maximum size of arraya is 10^6 withn int main();
+//wheres as if we declare globally it will be 10^7;
+//if the datatype is bool if  declared inside int main() it will be 10 ^7 and if ift is declared globally 10^8 will be the size
+
+vector<int>arr;//{}
+arr.push_back(0)//--->{0};
+arr.push_back(2)//--->{0,2};
+
+arr.size()//-->2
+arr.pop_back();//---{0};
+arr.size()//--->1
+ 
+ //segmentation fault is happened when u try  to access a bigger memory
+ //eg.if u push_back() 10^7 times
+ 
+ //other functions of vector --->
+ arr.push_back(0);//{0,0}
+ arr.push_back(2);//{0,0,2}
+ arr.clear();
+ arr.size()//--->{}
+ //clear/erase out  all the elements at once
+ 
+ vector<int>vec(7,0);//{0,0,0,0,0,0,0}; vec(size,number);
+ vector<int>vec2(4,10)//{10,10,10,10};
+ 
+ 
+ //copying the elements of a vector into another vector
+ vector<int>vec3(vec2.begin(),vec2.end());//-->[)
+ //vec3-->{10,10,10,10};
+ 
+ //copy the entire vec2 into vec3 
+ vector<int>vec3(vec2);
+ 
+ vector<int>srv;
+ srv.push_back(1);
+ srv.push_back(3);
+ srv.push_back(2);
+ srv.push_back(5);//--->{1,3,2,5};
+ 
+ vector<int>srv1(srv.begin(),srv.begin()+2)//-->{1,3};
+ 
+ srv.emplace_back(3);
+ //emplace bacak takes lesser time than pushback;
+ 
+ //lower bound upper bound;
+ //swap
+ swap(vec,vec3);
+ //begin(),rbegin(),end(),rend();
+ 
+ //defining 2D vector
+ 
+ vector<vector<int>>vec;
+ 
+ vector<int>raj1;
+ raj1.push_back(1);
+ raj1.push_back(2);
+ 
+ vector<int>raj2;
+ raj2.push_back(0);
+ raj2.push_back(2);
+ 
+ vector<int>raj3;
+ raj3.push_back(14);
+ raj3.push_back(25);
+ raj3.push_back(23);
+ 
+ 
+ vec.push_back(raj1);
+ vec.push_back(raj2);
+ vec.push_back(raj3);
+ 
+//  {
+//      {1, 2}
+//      {0, 2}
+//      {14 ,25, 23}
+     
+     
+//  }
+ //print all the elements of 2D vector
+ for(auto vctr: vec)
+ {
+     //vctr determines the vector
+     for(auto it: vctr)
+     {
+         //it defines the elemets of the vector
+         cout<<it<<" ";
+     }
+ }
+ 
+ //traditional way---->
+ for(int i =0;i<vec.size();i++)
+ {
+     for(int j =0;j<vec[i].size();j++)
+     {
+         cout<<vec[i][j]<<" ";
+     }
+     cout<<endl;
+ }
+ 
+ //define 10X20 matrix
+ 
+ vector<vector<int>>vec(10,vector<int>(20,0));
+ vec.push_back(vector<int>(20,0));
+ //adds another row vector
+ //size()---11X20
+ 
+ vec[0].push_back(10);
+//adds element 10 to the first vector  
+ 
+ 
+ //also way of define multiple vector
+ vector<int>arr[4];
+ //------>{},{},{},{};
+ arr[0].push_back(3);
+ //-------> {3},{},{},{};
+ 
+ //vector of vectors id 2D vectors
+ 
+ //how to 3D vector
+ 
+ //10X20X30
+ int arr[10][20][30];
+ 
+ vector<vector<vector<int>>>vec(10,vector<vector<int>>vec(20,vector<int>(30,0)));
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    return 0;
+}
