@@ -260,7 +260,33 @@ arr.size()//--->1
  
  
  
+ //take input in 2D vector
  
+  int n,q;cin>>n>>q;
+    vector<vector<int>>v1;
+    for(int i =0;i<n;i++)
+    {
+        int k;cin>>k;
+        vector<int>vec;
+        for(int j =0;j<k;j++){
+            int x;cin>>x;
+            vec.push_back(x);
+        }
+        v1.push_back(vec);
+        vec.clear();
+        
+    }
+    while(q--){
+    vector<int >v2(2);
+    for(int i=0;i<2;i++)
+    {
+        cin>>v2[i];
+    }
+    cout<<v1[v2[0]][v2[1]]<<endl;
+    }
+    
+    
+    return 0;
  
  
  
